@@ -8,7 +8,8 @@
     "serve": "http-server dist",
     "test": "karma start",
     "e2e": "codeceptjs run --steps",
-    "build-serve": "webpack --config webpack.prod.js && http-server dist"
+    "build-serve": "webpack --config webpack.prod.js && http-server dist",
+    "build-image": "node sharp.js"
   },
   "keywords": [],
   "author": "your_name <your.email@domain.com>",
@@ -49,7 +50,9 @@
   },
   "dependencies": {
     "idb": "^7.1.1",
+    "lazysizes": "^5.3.2",
     "regenerator-runtime": "^0.13.9",
+    "sharp": "^0.31.2",
     "workbox-window": "^6.5.4"
   },
   "description": ""
