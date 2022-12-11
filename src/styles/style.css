@@ -205,6 +205,11 @@
 	margin: 8px 0;
   }
 
+  .restaurant .restaurant__reviews {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
   .like {
 	width: 55px;
 	height: 55px;
@@ -237,4 +242,18 @@
 	color: #0f9287;
 	text-decoration: none;
 	padding: 12px;
+  }
+
+  .form-element {
+	width: 100%;
+	padding: 0.9rem;
+  }
+  
+  .btn-form {
+	color: #fff;
+	background-color: rgb(70, 230, 203);
+	border-color: rgb(52, 162, 144);
+	color: black;
+	padding: 0.7rem;
+	font-size: 1rem;
   }
