@@ -12,13 +12,27 @@ exports.config = {
   output: 'e2e/outputs',
   helpers: {
     Puppeteer: {
-      url: 'http://127.0.0.1:9000',
+      url: 'http://127.0.0.1:8080',
       show: true,
-      windowSize: '1200x900'
-    }
+      windowSize: '1200x900',
+    },
   },
   include: {
-    I: './steps_file.js'
+    I: './steps_file.js',
   },
-  name: 'restaurant_catalogue'
-}
+  bootstrap: null,
+  mocha: {},
+  name: 'restaurant_catalogue',
+  plugins: {
+    pauseOnFail: {},
+    retryFailedStep: {
+      enabled: true,
+    },
+    tryTo: {
+      enabled: true,
+    },
+    screenshotOnFail: {
+      enabled: true,
+    },
+  },
+};
