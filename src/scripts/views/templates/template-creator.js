@@ -20,9 +20,33 @@ const createRestaurantDetailTemplate = (restaurant) => `
     <h3>Deskripsi</h3>
     <p>${restaurant.description}</p>
   </div>
+
   <div class="restaurant__desc">
   <h3>Customer Reviews</h3>
-  <p>${restaurant.customerReviews.map((customer) => customer.review).join(' | ')}</p>
+  <div class="restaurant__reviews">
+  ${restaurant.customerReviews.map((review) => `
+        <div class="review-member">
+          <h4 class="text-title">${review.name}</h4>
+          <div class="review-date">${review.date}</div>
+          <div>${review.review}</div>
+        </div>`).join('')}
+  </div>
+
+  <div class="restaurant__desc">
+  <h3>Leave Reviews</h3>
+  
+  <form target="dummyframe" action="${CONFIG.BASE_URL}review" method="post" id="myForm">
+    <input type="hidden" id="id" name="id" value="${restaurant.id}">
+    <label>
+      Name: 
+      <input type="text" class="form-element" name="name">
+    </label>
+    <label>
+      Review:
+      <textarea type="text" class="form-element" name="review"></textarea>
+    </label>
+    <input type="submit" onclick='window.location.reload();' value="Submit Review" class="btn-form">
+  </form>
 </div>
 `;
 
@@ -36,7 +60,7 @@ const createRestaurantItemTemplate = (restaurant) => `
         </div>
     </div>
     <div class="restaurant-item__content">
-        <h3 class="restaurant__name"><a href="${`/#/detail/${restaurant.id}`}">${restaurant.name}</a></h3>
+        <h3 class="restaurant__name" id="restaurant-name"><a href="${`/#/detail/${restaurant.id}`}">${restaurant.name}</a></h3>
         <p>${restaurant.description}</p>
     </div>
   </div>
